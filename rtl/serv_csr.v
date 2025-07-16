@@ -142,6 +142,12 @@ module serv_csr
 	if (RESET_STRATEGY != "NONE") begin
 	   o_new_irq <= 1'b0;
 	   mie_mtie <= 1'b0;
+
+	   // Additional init; not sure why these wouldn't be zeroed out.
+	   mstatus_mpie <= 1'b0;
+	   mstatus_mie <= 1'b0;
+	   mcause31 <= 1'b0;
+	   mcause3_0 <= 4'b0;
 	end
    end
 
